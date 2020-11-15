@@ -13,7 +13,7 @@ node() {
             echo " Hello rest"
          
             sh   "curl -fsSL https://apt.releases.hashicorp.com/gpg |  apt-key add - "
-            sh   'apt-add-repository  "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
+            sh   'apt-add-repository  "deb [arch=amd64] https://apt.releases.hashicorp.com debian main"'
             sh   "apt-get update &&  apt-get install packer"
             sh "packer version"
 /* 
