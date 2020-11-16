@@ -4,6 +4,7 @@ node() {
 
   def String dockerImage = 'celcin/runtime-tool'
   def String dockerArgs = "-v ${WORKSPACE}/conan:/tmp/conan" 
+  def String url = "https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_amd64.zip"
 
   
   stage('Testing') {
@@ -11,10 +12,8 @@ node() {
       'Release Build': {
         docker.image(dockerImage).inside(dockerArgs) {
             echo " Hello rest"
-         
-            sh   "curl -fsSL https://apt.releases.hashicorp.com/gpg |  apt-key add - "
-            sh   'apt-add-repository  "deb [arch=amd64] https://apt.releases.hashicorp.com debian main"'
-            sh   "apt-get update &&  apt-get install packer"
+
+            sh   "wget ${URL} && unzip packer_0.9.0_linux_amd64.zip -d packer && mv packer/packer /usr/local/packer"
             sh "packer version"
 /* 
            sh '''#!/bin/bash
