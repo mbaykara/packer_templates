@@ -2,7 +2,7 @@ node() {
   //def app
   checkout scm
 
-  def String dockerImage = 'celcin/runtime-tool'
+  def String dockerImage = 'celcin/packer'
   def String dockerArgs = "-v ${WORKSPACE}/conan:/tmp/conan" 
   def String url = "https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_amd64.zip"
 
@@ -15,6 +15,8 @@ node() {
 
             sh  "apt install -y wget && wget ${URL} && unzip packer_0.9.0_linux_amd64.zip -d packer && mv packer/packer /usr/local/packer"
             sh "packer version"
+            //TODO
+            // install wget, packer, vagrant in a container
 /* 
            sh '''#!/bin/bash
                 echo " Hello rest"
