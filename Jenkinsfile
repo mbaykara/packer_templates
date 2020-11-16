@@ -14,14 +14,6 @@ node() {
             echo " Hello rest"
             sh "packer version"
             sh "cd ${WORKSPACE}/Ubuntu-18.04 && packer build ubuntu-18.04-vagrant.json"
-
-/* 
-           sh '''#!/bin/bash
-                echo " Hello rest"
-                 curl -fsSL https://apt.releases.hashicorp.com/gpg |  apt-key add -
-                 apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main
-                 apt-get update &&  apt-get install packer
-         '''  */
         }
       },
       'Complexity': {
