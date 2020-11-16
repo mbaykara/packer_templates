@@ -74,9 +74,17 @@
             "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
         }    
     ],
-    "post-processors": [{
+    "post-processors": [
+    {
       "type": "vagrant",
       "compression_level": "8",
-      "output": "output/ubuntu-18.04.1.box"
-    }]
-  }
+      "output": "output/ubuntu.box"
+    },
+    {
+      "type": "artifice",
+      "files": ["output-virtualbox-iso/vbox-example-disk001.vmdk",
+             "output-virtualbox-iso/vbox-example.ovf"
+           ]
+    }
+    ]
+}
