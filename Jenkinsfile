@@ -13,7 +13,6 @@ node() {
         docker.image(dockerImage).inside(dockerArgs) {
             echo " Hello rest"
 
-            sh  "apt install -y wget && wget ${URL} && unzip packer_0.9.0_linux_amd64.zip -d packer && mv packer/packer /usr/local/packer"
             sh "packer version"
             //TODO
             // install wget, packer, vagrant in a container
