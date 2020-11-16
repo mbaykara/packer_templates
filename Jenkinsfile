@@ -13,7 +13,7 @@ node() {
         docker.image(dockerImage).inside(dockerArgs) {
             echo " Hello rest"
             sh "packer version"
-            sh "cd ${WORKSPACE} && packer build ubuntu1804.json"
+            sh "cd ${WORKSPACE} && ls"
 
 /* 
            sh '''#!/bin/bash
