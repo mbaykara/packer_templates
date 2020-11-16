@@ -12,10 +12,9 @@ node() {
       'Release Build': {
         docker.image(dockerImage).inside(dockerArgs) {
             echo " Hello rest"
-
             sh "packer version"
-            //TODO
-            // install wget, packer, vagrant in a container
+            sh "cd ${WORKSPACE} && packer build ubuntu1804.json"
+
 /* 
            sh '''#!/bin/bash
                 echo " Hello rest"
